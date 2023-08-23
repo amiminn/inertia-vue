@@ -10,11 +10,8 @@
     </layout>
 </template>
 <script>
-import Layout from "./Layout.vue";
-import { Head } from "@inertiajs/vue3";
 export default {
     props: ["user"],
-    components: { Layout, Head },
 };
 </script>
 <style lang=""></style>

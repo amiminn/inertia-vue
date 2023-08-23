@@ -11,10 +11,6 @@
     </layout>
 </template>
 <script>
-import Layout from "./Layout.vue";
-import { Head } from "@inertiajs/vue3";
-export default {
-    components: { Layout, Head },
-};
+export default {};
 </script>
 <style lang=""></style>
