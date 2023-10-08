@@ -63,4 +63,9 @@ class Response
     {
         return Str::uuid()->toString();
     }
+
+    public static function to_lower($text)
+    {
+        return str_replace(" ", "", strtolower($text));
+    }
 }

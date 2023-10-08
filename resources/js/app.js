@@ -1,7 +1,7 @@
+import "./bootstrap";
+import "animate.css";
 import { createApp, h } from "vue";
-import { createInertiaApp } from "@inertiajs/vue3";
-import Layout from "./components/Layout.vue";
-import Head from "./components/Head.vue";
+import { createInertiaApp, Link } from "@inertiajs/vue3";
 
 createInertiaApp({
     resolve: (name) => {
@@ -10,15 +10,13 @@ createInertiaApp({
     },
     setup({ el, App, props, plugin }) {
         const app = createApp({ render: () => h(App, props) });
-
-        app.component("layout", Layout);
-        app.component("Head", Head);
+        app.component("Link", Link);
 
         app.config.globalProperties.$api = {
-            target: "/api/target",
+            auth: {
+                login: "/api/login",
+            },
         };
-
-        app.config.globalProperties.$active = "text-slate-950 bg-white";
 
         app.config.globalProperties.$filters = {
             status(data = null) {
@@ -26,7 +24,6 @@ createInertiaApp({
                 if (data == 0) return "Nonaktif";
             },
         };
-
         app.use(plugin);
         app.mount(el);
     },
